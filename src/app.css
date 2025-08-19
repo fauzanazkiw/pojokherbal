@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/optional/presets';
+@import '@skeletonlabs/skeleton/themes/sahara';
+
+@source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
+
+@font-face {
+	font-family: 'lato' sans-serif;
+	src: url(/static/fonts/Lato.ttf);
+}
+
+nav a {
+	@apply text-lg transition-colors duration-200 hover:text-amber-500;
+}
