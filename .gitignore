@@ -8,11 +8,24 @@ node_modules
 /.svelte-kit
 /build
 
+# Node
+node_modules/
+npm-debug.log
+pnpm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# SvelteKit build
+.build/
+.svelte-kit/
+.vercel/
+dist/
+build/
 # OS
 .DS_Store
 Thumbs.db
 
-# Env
+# env
 .env
 .env.*
 !.env.example

@@ -6,8 +6,8 @@ services:
     ports:
       - '5432:5432'
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: pojokherbal
+      POSTGRES_PASSWORD: djanthi
       POSTGRES_DB: admin
     volumes:
       - pgdata:/var/lib/postgresql/data
@@ -18,7 +18,7 @@ services:
     ports:
       - '8081:8081'
     environment:
-      - DATABASE_URL=postgres://postgres:password@localhost:5432/admin
+      - DATABASE_URL=postgres://pojokherbal:djanthi@localhost:5432/admin
     depends_on:
       - db
 
