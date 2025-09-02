@@ -1,30 +1,41 @@
 <script lang="ts">
-	import { onMount, onDestroy, tick } from 'svelte';
 	import { fly } from 'svelte/transition';
+	import { onMount, onDestroy, tick } from 'svelte';
+	import { browser } from '$app/environment';
 
 	let scrolled = false;
 	let menuOpen = false;
 	let closeBtn: HTMLButtonElement | null = null;
 
+	// safe: cek browser sebelum membaca window
 	function handleScroll() {
+		if (!browser) return;
 		scrolled = window.scrollY > 5;
 	}
 
 	onMount(() => {
+		// hanya di client
+		if (!browser) return;
+
+		// set awal & attach listener
+		handleScroll();
 		window.addEventListener('scroll', handleScroll);
 	});
 
 	onDestroy(() => {
+		// hanya di client
+		if (!browser) return;
+
 		window.removeEventListener('scroll', handleScroll);
 		removeEscListener();
 	});
 
-	// Disable page scroll when mobile menu is open (SSR-safe)
-	$: if (typeof window !== 'undefined') {
+	// Efek ketika menuOpen berubah — hanya berjalan di browser
+	$: if (browser) {
 		if (menuOpen) {
 			document.documentElement.classList.add('overflow-hidden');
 			addEscListener();
-			// fokus ke close button setelah DOM update
+			// set fokus setelah DOM update
 			tick().then(() => closeBtn?.focus());
 		} else {
 			document.documentElement.classList.remove('overflow-hidden');
@@ -40,15 +51,17 @@
 		menuOpen = false;
 	}
 
-	// handle escape key
+	// keyboard escape handler
 	function onKeydown(e: KeyboardEvent) {
 		if (e.key === 'Escape') closeMenu();
 	}
 	function addEscListener() {
-		if (typeof window !== 'undefined') window.addEventListener('keydown', onKeydown);
+		if (!browser) return;
+		window.addEventListener('keydown', onKeydown);
 	}
 	function removeEscListener() {
-		if (typeof window !== 'undefined') window.removeEventListener('keydown', onKeydown);
+		if (!browser) return;
+		window.removeEventListener('keydown', onKeydown);
 	}
 </script>
 
@@ -61,7 +74,6 @@
 >
 	<div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-1.5 md:py-2">
 		<!-- Logo -->
-		<!-- Logo (lebih besar visual tanpa mengubah tinggi navbar) -->
 		<a href="/" class="flex h-15 items-center overflow-visible md:h-16" aria-label="Go to home">
 			<img
 				src="/images/djanthi.png"
@@ -95,7 +107,6 @@
 			aria-label="Toggle menu"
 		>
 			<div class="flex h-10 w-10 flex-col items-center justify-center">
-				<!-- Bar 1 -->
 				<span
 					aria-hidden="true"
 					class="block h-[2px] w-6 bg-gray-800 transition-transform duration-300"
@@ -103,15 +114,11 @@
 						? 'translateY(6px) rotate(45deg)'
 						: 'translateY(0) rotate(0)'};"
 				></span>
-
-				<!-- Middle bar -->
 				<span
 					aria-hidden="true"
 					class="my-1 block h-[2px] w-6 bg-gray-800 transition-opacity duration-200"
 					style="opacity: {menuOpen ? 0 : 1};"
 				></span>
-
-				<!-- Bar 3 -->
 				<span
 					aria-hidden="true"
 					class="block h-[2px] w-6 bg-gray-800 transition-transform duration-300"
@@ -124,14 +131,11 @@
 	</div>
 </nav>
 
-<!-- Mobile sidebar (overlay) -->
 {#if menuOpen}
-	<!-- Backdrop -->
 	<div class="fixed inset-0 z-40 md:hidden" on:click={closeMenu} aria-hidden="true">
 		<div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
 	</div>
 
-	<!-- Panel: gunakan div role=dialog untuk a11y -->
 	<div
 		id="mobile-nav-panel"
 		class="fixed top-0 left-0 z-50 h-full w-60 max-w-[85vw] overflow-auto bg-white shadow-2xl md:hidden"
@@ -205,7 +209,6 @@
 	.animate-slideDown {
 		animation: slideDown 0.4s ease-out;
 	}
-
 	@media (max-width: 767px) {
 		nav.fixed {
 			box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);

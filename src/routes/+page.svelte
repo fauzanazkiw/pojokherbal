@@ -1,18 +1,23 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Icon from '@iconify/svelte';
 	import Testimoni from '$lib/components/Testimoni.svelte';
 	import Partner from '$lib/components/Partner.svelte';
 
-	function scrollToProduk() {
-		const section = document.getElementById('produk-section');
-		if (section) {
-			const offset = 80;
-			const y = section.getBoundingClientRect().top + window.scrollY - offset;
-			window.scrollTo({ top: y, behavior: 'smooth' });
-		}
-	}
+	let scrollToProduk: () => void;
+
+	onMount(() => {
+		scrollToProduk = () => {
+			const section = document.getElementById('produk-section');
+			if (section) {
+				const offset = 80;
+				const y = section.getBoundingClientRect().top + window.scrollY - offset;
+				window.scrollTo({ top: y, behavior: 'smooth' });
+			}
+		};
+	});
 </script>
 
 <Navbar />

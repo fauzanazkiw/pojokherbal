@@ -17,5 +17,5 @@ declare global {
 		// interface Platform {}
 	}
 }
-
+declare module '@iconify/svelte';
 export {};
