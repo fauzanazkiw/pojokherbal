@@ -55,7 +55,7 @@
 	<div class="grid items-start gap-15 md:grid-cols-2">
 		<!-- Bagian Kiri (tidak diubah) -->
 		<div class="flex flex-col gap-6">
-			<h2 class="text-1xl leading-snug font-bold text-amber-600 md:text-3xl">
+			<h2 class="text-[21px] leading-snug font-bold text-amber-600 md:text-3xl">
 				Menghidupkan Tradisi Sehat<br />melalui Ramuan Alami
 			</h2>
 
@@ -97,7 +97,7 @@
 
 				<div class="flex-1">
 					<h3 class="mb-1 text-xl font-bold text-gray-800">Tentang Kami</h3>
-					<p class="text-xs text-gray-600 md:text-base">
+					<p class="text-[14px] text-gray-600 md:text-base">
 						Kami hadir untuk mengembangkan dan mengenalkan minuman tradisional pada masyarakat agar
 						senantiasa menjaga kebudayaan minum jamu, dan menjadi tempat yang dapat diterima
 						kalangan anak muda maupun orang tua.
@@ -118,7 +118,7 @@
 
 				<div class="flex-1">
 					<h3 class="mb-2 text-xl font-bold text-gray-800">Produk</h3>
-					<p class="text-xs text-gray-600 md:text-base">
+					<p class="text-[14px] text-gray-600 md:text-base">
 						Kami menghadirkan beberapa varian jamu seperti; jamu rehabilitatif/jamu racik, jamu
 						preventif/jamu wedangan, jamu latte, dan jamu tradisional. Selain itu, kami menyediakan
 						berbagai makanan dan cemilan untuk menemani minum jamu.
