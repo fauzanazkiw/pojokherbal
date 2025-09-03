@@ -72,7 +72,7 @@
 	class:static={menuOpen}
 	class:animate-slideDown={scrolled}
 >
-	<div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-[0.5px] md:py-2.5">
+	<div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-0 md:py-2.5">
 		<!-- Logo (lebih besar, tapi navbar padding tetap) -->
 		<a
 			href="/"
@@ -82,7 +82,7 @@
 			<img
 				src="/images/djanthi.png"
 				alt="Djanthi Logo"
-				class="h-24 w-auto -translate-y-1 transform object-contain transition-transform duration-200 md:h-30 md:-translate-y-1"
+				class="h-22 w-auto -translate-y-0 transform object-contain transition-transform duration-200 md:h-30 md:-translate-y-1"
 				style="z-index:20;"
 			/>
 		</a>
