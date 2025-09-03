@@ -53,7 +53,7 @@
 <!-- Section Produk -->
 <section id="produk-section" class="mx-auto -mb-3 max-w-6xl px-5 py-10">
 	<div class="grid items-start gap-15 md:grid-cols-2">
-		<!-- Bagian Kiri -->
+		<!-- Bagian Kiri (tidak diubah) -->
 		<div class="flex flex-col gap-6">
 			<h2 class="text-3xl leading-snug font-bold text-amber-600 md:text-3xl">
 				Menghidupkan Tradisi Sehat<br />melalui Ramuan Alami
@@ -86,7 +86,15 @@
 		<div class="flex flex-col space-y-4">
 			<!-- Tentang Kami -->
 			<div class="flex flex-col items-start gap-4 border-b-2 border-gray-100 md:flex-row">
-				<img src="/images/toko.jpg" alt="Foto Toko" class="h-45 w-40 object-cover shadow" />
+				<!-- wrapper gambar: centered on mobile, left on md+ -->
+				<div class="flex w-full justify-center md:w-auto md:justify-start">
+					<img
+						src="/images/toko.jpg"
+						alt="Foto Toko"
+						class="mx-auto h-auto w-full max-w-sm object-cover shadow md:mx-0 md:h-45 md:w-40"
+					/>
+				</div>
+
 				<div class="flex-1">
 					<h3 class="mb-1 text-xl font-bold text-gray-800">Tentang Kami</h3>
 					<p class="text-sm text-gray-700 md:text-base">
@@ -99,7 +107,15 @@
 
 			<!-- Produk -->
 			<div class="flex flex-col items-start gap-4 md:flex-row-reverse">
-				<img src="/images/rempah3.png" alt="Produk Display" class="h-48 w-40 object-cover shadow" />
+				<!-- wrapper gambar rempah: centered on mobile, right on md+ -->
+				<div class="flex w-full justify-center md:w-40 md:justify-end">
+					<img
+						src="/images/rempah3.png"
+						alt="Produk Display"
+						class="mx-auto h-auto w-full max-w-sm object-cover shadow md:mx-0 md:w-40"
+					/>
+				</div>
+
 				<div class="flex-1">
 					<h3 class="mb-2 text-xl font-bold text-gray-800">Produk</h3>
 					<p class="text-sm text-gray-700 md:text-base">
@@ -131,10 +147,10 @@
 			<div>
 				<h3 class="mb-2 text-xl font-semibold italic">Misi :</h3>
 				<p class="leading-relaxed text-white/90 italic">
-					Mengolah jamu dan tanaman rempah menjadi produk yang berkualitas,Mendorong pertumbuhan
-					ekonomi hijau melalui pengolahan tanaman obat ramah lingkungan,Mengembangkan inovasi
-					produk jamu untuk melestarikan tradisi jamu Nusantara,Mempromosikan budaya jamu sebagai
-					Warisan Kesehatan Nusantara ke masyarakat,Menjadi Brand terpercaya di bidang jamu dan
+					Mengolah jamu dan tanaman rempah menjadi produk yang berkualitas, Mendorong pertumbuhan
+					ekonomi hijau melalui pengolahan tanaman obat ramah lingkungan, Mengembangkan inovasi
+					produk jamu untuk melestarikan tradisi jamu Nusantara, Mempromosikan budaya jamu sebagai
+					Warisan Kesehatan Nusantara ke masyarakat, Menjadi Brand terpercaya di bidang jamu dan
 					herbal.
 				</p>
 			</div>

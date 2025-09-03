@@ -67,18 +67,22 @@
 
 <nav
 	aria-label="Main navigation"
-	class="right-0 left-0 z-20 bg-white transition-all duration-300"
+	class="right-0 left-0 z-20 overflow-visible bg-white transition-all duration-300"
 	class:fixed={!menuOpen}
 	class:static={menuOpen}
 	class:animate-slideDown={scrolled}
 >
-	<div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-1.5 md:py-2">
-		<!-- Logo -->
-		<a href="/" class="flex h-15 items-center overflow-visible md:h-16" aria-label="Go to home">
+	<div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-[0.5px] md:py-2.5">
+		<!-- Logo (lebih besar, tapi navbar padding tetap) -->
+		<a
+			href="/"
+			class="relative z-20 flex items-center overflow-visible md:h-16"
+			aria-label="Go to home"
+		>
 			<img
 				src="/images/djanthi.png"
 				alt="Djanthi Logo"
-				class="h-full w-auto origin-left scale-125 transform transition-transform duration-200 md:scale-150"
+				class="h-24 w-auto -translate-y-1 transform object-contain transition-transform duration-200 md:h-30 md:-translate-y-1"
 				style="z-index:20;"
 			/>
 		</a>
@@ -147,7 +151,8 @@
 	>
 		<div class="flex items-center justify-between border-b border-gray-100 px-4 py-4">
 			<a href="/" class="flex items-center text-lg font-semibold">
-				<img src="/images/djanthi.png" alt="Djanthi Logo" class="h-15 w-auto" />
+				<!-- gunakan ukuran lebih kecil di dalam panel agar muat -->
+				<img src="/images/djanthi.png" alt="Djanthi Logo" class="h-10 w-auto object-contain" />
 			</a>
 			<button
 				bind:this={closeBtn}

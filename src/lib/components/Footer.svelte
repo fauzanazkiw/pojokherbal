@@ -100,13 +100,6 @@
 	</div>
 
 	<div class="mx-auto mt-8 w-full max-w-6xl border-t pt-6 text-center text-amber-700">
-		<p class="text-xs">
-			PT Pojok Herbal Indonesia © 2025 — viewport:
-			{#if width !== null}
-				{width}px
-			{:else}
-				unknown
-			{/if}
-		</p>
+		<p class="text-xs">PT Pojok Herbal Indonesia © 2025</p>
 	</div>
 </footer>

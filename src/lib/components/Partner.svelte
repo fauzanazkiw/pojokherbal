@@ -56,12 +56,13 @@
 				{#each [0, 1] as pass}
 					{#each partners as partner (partner.src + '-' + pass)}
 						<div
-							class="marquee-item flex flex-shrink-0 items-center space-x-4 px-8"
+							class="marquee-item flex flex-shrink-0 items-center space-x-4 px-4 md:px-8"
 							role="listitem"
 							aria-hidden={pass === 1 ? 'true' : 'false'}
 						>
-							<img src={partner.src} alt={partner.alt} class="h-20 w-auto object-contain" />
-							<p class="text-lg font-medium text-gray-700">{partner.name}</p>
+							<!-- smaller on mobile, larger on md+ -->
+							<img src={partner.src} alt={partner.alt} class="h-10 w-auto object-contain md:h-20" />
+							<p class="text-base font-medium text-gray-700 md:text-lg">{partner.name}</p>
 						</div>
 					{/each}
 				{/each}
